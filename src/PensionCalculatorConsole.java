@@ -3,7 +3,7 @@
 // jpackage --type exe --input . --dest . --main-jar pensioncalculator_jar.jar --main-class PensionCalculatorConsole --win-console --win-shortcut --win-menu --win-dir-chooser --app-version "%appver%" --name "Pension Calculator" --verbose
 // set appver=%date:~6%%time:~7%
 //
-// jpackage --type exe --input . --dest ../.. --main-jar pensioncalculator_jar.jar --main-class PensionCalculatorConsole --win-console --win-shortcut --win-menu --win-dir-chooser --app-version "1.2.12" --name "Pension Calculator" --verbose
+// jpackage --type exe --input . --dest ../.. --main-jar pensioncalculator_jar.jar --main-class PensionCalculatorConsole --win-console --win-shortcut --win-menu --win-dir-chooser --app-version "1.2.13" --name "Pension Calculator" --verbose
 
 import java.time.LocalDateTime;
 import java.util.Properties;
