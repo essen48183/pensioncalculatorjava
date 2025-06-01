@@ -86,9 +86,9 @@ public class PensionCalculatorConsole  {
             inputMultiplierIsFACWageFlag = true;
         }
 
-        int colaNumber = 33;
-        int colaSpacing = 1;
-        double colaPercent = 2;
+        int colaNumber = 3;
+        int colaSpacing = 5;
+        double colaPercent = 8;
         int isColaCompounding = 1;
         boolean isColaCompoundingFlag = true;
 
@@ -111,29 +111,29 @@ public class PensionCalculatorConsole  {
             isColaCompoundingFlag = false;
         }
 
-        System.out.print("How many COLA adjustments?  (use 40 or more if you intend annual colas and use 0 if you want no COLA's in calculation... they stop at life expectancy)  (40) : ");
+        System.out.print("How many COLA adjustments?  (use 40 or more if you intend annual colas and use 0 if you want no COLA's in calculation... they stop at life expectancy)  (3) : ");
         line = sc.nextLine();
         if (line != "") {
             colaNumber = Integer.parseInt(line);
         } else {
-            System.out.print("40 ");
+            System.out.print("3 ");
         }
         if (colaNumber != 0) {
             colaSpacing = 1;
-            System.out.print("\nHow many years apart are the COLA adjustments? (1) : ");
+            System.out.print("\nHow many years apart are the COLA adjustments? (5) : ");
             line = sc.nextLine();
             if (line != "") {
                 colaSpacing = Integer.parseInt(line);
             } else {
-                System.out.print("1 ");
+                System.out.print("5 ");
             }
-            colaPercent = 2;
-            System.out.print("\nWhat percent are the COLA adjustments? (2) : ");
+            //colaPercent = 8;
+            System.out.print("\nWhat percent are the COLA adjustments? (8) : ");
             line = sc.nextLine();
             if (line != "") {
                 colaPercent = Double.parseDouble(line);
             } else {
-                System.out.print("2 ");
+                System.out.print("8 ");
             }
             //colaPercent = colaPercent/100;
         }
@@ -150,34 +150,34 @@ public class PensionCalculatorConsole  {
             System.out.print("2.63 ");
         }
         //expectedFutureInflationRate = expectedFutureInflationRate/100;
-        int inputRetAge = 55;
-        System.out.print("\nEnter a retirement age that is not based on years of service. (55 for current system) (55) :");
+        int inputRetAge = 60;
+        System.out.print("\nEnter a retirement age that is not based on years of service. (60 for current system) (60) :");
         line = sc.nextLine();
         if (line != "") {
             inputRetAge = Integer.parseInt(line);
         } else {
-            System.out.print("55 ");
+            System.out.print("60 ");
         }
         int inputCareerYearsService = 25;
-        System.out.print("\nEnter an alternative number of years of service needed to retire before default retirement age: (25) : ");
+        System.out.print("\nEnter an alternative number of years of service needed to retire before the default retirement age: (25) : ");
         line = sc.nextLine();
         if (line != "") {
             inputCareerYearsService = Integer.parseInt(line);
         } else {
             System.out.print("25 ");
         }
-        int inputMinAgeForYearsService = 50;
-        System.out.print("\nEnter minimum age you must be to retire if using years of service (use same as default retirement age to not allow years of service): (50)");
+        int inputMinAgeForYearsService = 55;
+        System.out.print("\nEnter minimum age you must be to retire if using years of service (use same as default retirement age to not allow years of service): (55)");
         line = sc.nextLine();
         if (line != "") {
             inputMinAgeForYearsService = Integer.parseInt(line);
         } else {
-            System.out.print("50 ");
+            System.out.print("55 ");
         }
 
         //int inputAgeHired = inputRetAge - inputCareerYearsService;
         int deltaExtraLife = 0;
-        System.out.print("\nHow many more years than an average life expectancy of 73 male retiree and 79 female spouse would you like to calculate for? (0) : ");
+        System.out.print("\nHow many more years than an average life expectancy of 73 male retiree and 79 female spouse would you like to calculate for? (enter 6 if female employee) (0) : ");
         line = sc.nextLine();
         if (line != "") {
             deltaExtraLife = Integer.parseInt(line);
@@ -197,7 +197,7 @@ public class PensionCalculatorConsole  {
         //fake comment to allow a commit
 
         int inputSpouseAgeDiff = -2;
-        System.out.print("\nWhat is the age difference of fictional spouse?  ( 2 years younger would be -2, for no widow calculation enter 6) (-2) : ");
+        System.out.print("\nWhat is the age difference of fictional spouse?  ( 2 years younger would be -2) (for female employee or male with no widow: enter -6) (-2) : ");
         line = sc.nextLine();
         if (line != "") {
             inputSpouseAgeDiff = Integer.parseInt(line);
@@ -303,9 +303,9 @@ public class PensionCalculatorConsole  {
                 fileTotalNumYearsNeededToRetire = inputCareerYearsService;
                 System.out.println("Eligible to retire in "+(int)(fileEmployeeHiredYear+fileTotalNumYearsNeededToRetire)+" at age " + (fileTotalNumYearsNeededToRetire + inputAgeHired) + " based on "+fileTotalNumYearsNeededToRetire+" years of service");
             }
-            if (fileTotalNumYearsNeededToRetire < 10) { //you need at least 10 years to retire
-                fileTotalNumYearsNeededToRetire = 10;
-                System.out.println("Oops, they need at least 10 years to retire... adjusting retirement age to "+(inputAgeHired + fileTotalNumYearsNeededToRetire)+".");
+            if (fileTotalNumYearsNeededToRetire < 1) { //you need at least 10 years to retire
+                fileTotalNumYearsNeededToRetire = 1;
+                System.out.println("Oops, they need at least 1 years to retire... adjusting retirement age to "+(inputAgeHired + fileTotalNumYearsNeededToRetire)+".");
             }
 
 
@@ -385,21 +385,21 @@ public class PensionCalculatorConsole  {
         System.out.println("\n______________________________________________________________");
         System.out.println("\n______________________________________________________________");
 
-        System.out.print("\n\nA fictional new hire in a system setup with a minimum of  "+inputCareerYearsService+" years of service to retire (as long as they have a minimum age of "+ inputMinAgeForYearsService+"), or alternatively 10 years vestment and an age of "+inputRetAge+", \n");
+        System.out.print("\n\nA fictional new hire in a system setup with a minimum of  "+inputCareerYearsService+" years of service to retire (as long as they have a minimum age of "+ inputMinAgeForYearsService+"), or alternatively 1 years vestment and an age of "+inputRetAge+", \n");
         int totalNumYearsNeededToRetire = 0;
-        if (inputRetAge <= (inputCareerYearsService + inputAgeHired)) { //if the default retirement age is less than  using years of service, use default age only
-            totalNumYearsNeededToRetire = inputRetAge - inputAgeHired;
-            System.out.println("retiring based on age with "+totalNumYearsNeededToRetire+" years at default retirement age of " + inputRetAge +" ") ;
-        } else if ((inputAgeHired + inputCareerYearsService) < (inputMinAgeForYearsService)){ //if you will be younger than min ret age using years of service, use youngest ret age.
+        if ((inputAgeHired + inputCareerYearsService) < (inputMinAgeForYearsService)){ //if you will be younger than min ret age using years of service, use youngest ret age.
             totalNumYearsNeededToRetire = inputMinAgeForYearsService - inputAgeHired;
             System.out.println("retiring with "+totalNumYearsNeededToRetire+" years at the Minimum Age ("+ inputMinAgeForYearsService+") to use Years of Service ");
-        } else  {//just use years of service
+        } else if (inputRetAge <= (inputCareerYearsService + inputAgeHired)) { //if the default retirement age is less than  using years of service, use default age only
+            totalNumYearsNeededToRetire = inputRetAge - inputAgeHired;
+            System.out.println("retiring based on aging out with "+totalNumYearsNeededToRetire+" years at mandatory retirement age of " + inputRetAge +" ") ;
+        }  else  {//just use years of service
             totalNumYearsNeededToRetire = inputCareerYearsService;
             System.out.println("retiring with "+totalNumYearsNeededToRetire+" years service at age " + (inputCareerYearsService + inputAgeHired) + " based on years of service ");
         }
-        if (totalNumYearsNeededToRetire < 10) { //you need at least 10 years to retire
-                totalNumYearsNeededToRetire = 10;
-                System.out.println("You need at least 10 years to retire... adjusting retirement age to "+inputAgeHired+totalNumYearsNeededToRetire+".");
+        if (totalNumYearsNeededToRetire < 1) { //you need at least 1 year9s)to retire
+                totalNumYearsNeededToRetire = 1;
+                System.out.println("You need at least 1 years to retire... adjusting retirement age to "+inputAgeHired+totalNumYearsNeededToRetire+".");
         }
         System.out.println("has the following cost/benefit calculations: ");
 
@@ -413,7 +413,7 @@ public class PensionCalculatorConsole  {
 */
 
         int earliestEligibleRetirementAge = (inputAgeHired + totalNumYearsNeededToRetire);
-        double totalPayoutCustomCalc = disbursements.calculateDisbursements(true, inputBaseWage, inputFacWage, inputMultiplier, inputMultiplierIsFACWageFlag, isColaCompoundingFlag, colaNumber, colaSpacing, colaPercent, expectedFutureInflationRate, earliestEligibleRetirementAge, inputCareerYearsService, deltaExtraLife, inputSpouseAgeDiff, inputAgeHired);
+        double totalPayoutCustomCalc = disbursements.calculateDisbursements(true, inputBaseWage, inputFacWage, inputMultiplier, inputMultiplierIsFACWageFlag, isColaCompoundingFlag, colaNumber, colaSpacing, colaPercent, expectedFutureInflationRate, earliestEligibleRetirementAge, totalNumYearsNeededToRetire, deltaExtraLife, inputSpouseAgeDiff, inputAgeHired);
         double presentValueEmployeeCalculatedPension = paymentsInto.calculateDiscountPayment(true, totalPayoutCustomCalc, 0.0d, inputFacWage * .06 * 25, inputFacWage, expectedSystemFutureRateReturn, expectedFutureInflationRate, 25, LIFE_EXPECTANCY + deltaExtraLife - earliestEligibleRetirementAge, 1);
         double totalCityPaysForEmployeeIntoCalculatedPension = presentValueEmployeeCalculatedPension;
         double annualCityPaysForEmployeeIntoCalculatedPension = totalCityPaysForEmployeeIntoCalculatedPension / inputCareerYearsService;

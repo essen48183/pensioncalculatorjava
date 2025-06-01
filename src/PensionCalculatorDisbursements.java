@@ -189,7 +189,7 @@ if (verbose) {
     nf.setMaximumFractionDigits(2);
 
 
-    System.out.println("\nAssumptions: " + nf.format(annualMulti * 100 )+ "% multiplier based on $" + (int) earningsBasedOn + " (out of $"+(int)fWage+" FAC) with " + colaCustomCounter + " "+colaType+" C.O.L.A.'s of " + nf.format(colaPercent * 100 )+ "% spaced " + colaSpacing + " years apart, future Inflation "+ nf.format(inflateRate *100)+"%, No SSI ");
+    System.out.println("\nAssumptions: " + nf.format(annualMulti * 100 )+ "% multiplier based on $" + (int) earningsBasedOn + " (out of $"+(int)fWage+" FAC) with " + colaCustomCounter + " "+colaType+" C.O.L.A.'s of " + nf.format(colaPercent * 100 )+ "% spaced " + colaSpacing + " years apart, future Inflation "+ nf.format(inflateRate *100)+"%, No SSI or previous/other 401/457 disbursements included. ");
     System.out.println("The initial retirement is: $" + (int) initialCustomColaPension + ", Age: " + retirementAge + "yrs old and " + yearsService + " yrs of service, with life expectancy of " + LIFE_EXPECTANCY + " + " + lifeExpDelta + " and life expectancy of spouse as " + LIFE_EXPECTANCY_SPOUSE + " + " + lifeExpDelta + " and spouse's age diff being " + spouseAgeDiff + ".");
     System.out.println(" ");
 
